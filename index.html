@@ -19,6 +19,9 @@
   --accent-hover: #1E4035;
   --gold: #B8963C;
   --green-light: #E8F2EF;
+  --red: #C83A3A;
+  --red-light: #FBF0EF;
+  --amber-light: #FBF5E8;
   --border: #D0DDD8;
   --radius: 12px;
   --shadow: 0 2px 16px rgba(26,36,32,0.08);
@@ -30,15 +33,21 @@ html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); font-f
 ::-webkit-scrollbar-thumb { background:var(--border); border-radius:99px; }
 h1, h2, h3, .serif { font-family:'DM Serif Display', Georgia, serif; font-weight:400; color:var(--ink); }
 
-.page { max-width:1180px; margin:0 auto; padding:56px 36px 72px; }
+.page { max-width:1440px; margin:0 auto; padding:56px 48px 80px; }
 
-.hero { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:44px; flex-wrap:wrap; }
-.hero-brand { display:flex; align-items:center; gap:14px; }
-.hero-mark { width:44px; height:44px; border-radius:12px; background:var(--ink); color:#fff; display:grid; place-items:center; font-family:'DM Serif Display', Georgia, serif; font-size:24px; flex-shrink:0; }
-.hero h1 { font-size:32px; margin:0; }
-.hero .subtitle { font-size:13.5px; color:var(--ink3); margin-top:6px; max-width:520px; }
+.hero { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:48px; flex-wrap:wrap; }
+.hero-brand { display:flex; align-items:center; gap:16px; }
+.hero-mark { width:48px; height:48px; border-radius:12px; background:var(--ink); color:#fff; display:grid; place-items:center; font-family:'DM Serif Display', Georgia, serif; font-size:26px; flex-shrink:0; }
+.hero h1 { font-size:34px; margin:0; }
+.hero .subtitle { font-size:14px; color:var(--ink3); margin-top:6px; max-width:560px; }
 
-.grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:20px; }
+.category { margin-bottom:52px; }
+.category:last-child { margin-bottom:0; }
+.category-header { margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+.category-eyebrow { font-size:11.5px; font-weight:600; color:var(--ink3); text-transform:uppercase; letter-spacing:.08em; margin:0; }
+.category-header h2 { font-size:22px; margin:6px 0 0; }
+
+.grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
 
 .card {
   background:var(--surface);
@@ -52,8 +61,15 @@ h1, h2, h3, .serif { font-family:'DM Serif Display', Georgia, serif; font-weight
 }
 .card:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(26,36,32,0.12); }
 
-.card-icon { width:42px; height:42px; border-radius:10px; background:var(--surface2); color:var(--accent); display:grid; place-items:center; font-size:20px; margin-bottom:16px; }
-.card h2 { font-size:19px; margin:0 0 8px; }
+.card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:16px; }
+.card-icon { width:42px; height:42px; border-radius:10px; background:var(--surface2); color:var(--accent); display:grid; place-items:center; font-size:20px; flex-shrink:0; }
+
+.badge { display:inline-flex; align-items:center; gap:4px; padding:3px 9px; border-radius:99px; font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; margin-top:4px; }
+.badge-green { background:var(--green-light); color:var(--accent); }
+.badge-amber { background:var(--amber-light); color:var(--gold); }
+.badge-red { background:var(--red-light); color:var(--red); }
+
+.card h3 { font-size:19px; margin:0 0 8px; }
 .card p { margin:0; color:var(--ink2); font-size:13.5px; line-height:1.55; flex:1; }
 
 .card-footer { margin-top:20px; display:flex; align-items:center; }
@@ -77,8 +93,11 @@ h1, h2, h3, .serif { font-family:'DM Serif Display', Georgia, serif; font-weight
 .btn-primary .arrow { transition:transform .15s; }
 .btn-primary:hover .arrow { transform:translateX(3px); }
 
-.footer-note { margin-top:48px; padding-top:22px; border-top:1px solid var(--border); font-size:12px; color:var(--ink3); text-align:center; }
+.footer-note { margin-top:52px; padding-top:22px; border-top:1px solid var(--border); font-size:12px; color:var(--ink3); text-align:center; }
 
+@media (max-width:1100px) {
+  .grid { grid-template-columns:repeat(2, 1fr); }
+}
 @media (max-width:760px) {
   .page { padding:36px 20px 56px; }
   .grid { grid-template-columns:1fr; }
@@ -94,49 +113,126 @@ h1, h2, h3, .serif { font-family:'DM Serif Display', Georgia, serif; font-weight
       <div class="hero-mark">I</div>
       <div>
         <h1>Painel de Ferramentas</h1>
-        <div class="subtitle">Acesso rápido às ferramentas internas de pré-análise e gestão de prestação de contas da Inovatus.</div>
+        <div class="subtitle">Acesso rápido às ferramentas internas de regulatório, processos internos e gestão de projetos da Inovatus.</div>
       </div>
     </div>
   </div>
 
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-icon">&#128202;</div>
-      <h2>Análise de Consumo</h2>
-      <p>Visualiza a pré-análise dos itens de material de consumo. Gera um painel interativo ou uma planilha Excel a partir do arquivo <strong>.json</strong> exportado pela IA.</p>
-      <div class="card-footer">
-        <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/pc_consumo/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
-      </div>
+  <!-- ===================== REGULATORIO ===================== -->
+  <div class="category">
+    <div class="category-header">
+      <p class="category-eyebrow">Regulatório</p>
+      <h2>Prestação de Contas</h2>
     </div>
+    <div class="grid">
 
-    <div class="card">
-      <div class="card-icon">&#128203;</div>
-      <h2>Painel PC</h2>
-      <p>Gestão e acompanhamento das prestações de contas — checklist de ciclos, retornos e status. Ferramenta ainda em protótipo.</p>
-      <div class="card-footer">
-        <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/painel_pc/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#128202;</div>
+          <span class="badge badge-amber">Protótipo</span>
+        </div>
+        <h3>Análise de Consumo</h3>
+        <p>Visualiza a pré-análise dos itens de material de consumo. Gera um painel interativo ou uma planilha Excel a partir do arquivo <strong>.json</strong> exportado pela IA.</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/pc_consumo/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-icon">&#128196;</div>
-      <h2>Extrator REF / PTR-B</h2>
-      <p>Extrai as abas relevantes do REF e do PTR-B em um formato limpo e estruturado. Passo recomendado antes de iniciar qualquer pré-análise com IA, garantindo que ela receba a informação necessária sem ruído.</p>
-      <div class="card-footer">
-        <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/extrator_ptrb/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#128203;</div>
+          <span class="badge badge-red">Não pronto</span>
+        </div>
+        <h3>Painel PC</h3>
+        <p>Gestão e acompanhamento das prestações de contas — checklist de ciclos, retornos e status. Ainda em desenvolvimento.</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/painel_pc/Painel_PC_VA.3.html" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-icon">&#128101;</div>
-      <h2>Análise de Equipe (REF)</h2>
-      <p>Analisa os dados de equipe da prestação de contas a partir do arquivo REF. Substitui o antigo controle em Excel apelidado de "Controle de HH".</p>
-      <div class="card-footer">
-        <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/analise_REF_equipe/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#128196;</div>
+          <span class="badge badge-green">Em operação</span>
+        </div>
+        <h3>Extrator REF / PTR-B</h3>
+        <p>Extrai as abas relevantes do REF e do PTR-B em um formato limpo e estruturado. Passo recomendado antes de iniciar qualquer pré-análise com IA, garantindo que ela receba a informação necessária sem ruído.</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/extrator_ptrb/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
       </div>
-    </div>
 
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#128101;</div>
+          <span class="badge badge-amber">Protótipo</span>
+        </div>
+        <h3>Análise de Equipe (REF)</h3>
+        <p>Analisa os dados de equipe da prestação de contas a partir do arquivo REF. Substitui o antigo controle em Excel apelidado de "Controle de HH".</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/analise_REF_equipe/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== PROCESSOS INTERNOS ===================== -->
+  <div class="category">
+    <div class="category-header">
+      <p class="category-eyebrow">Processos Internos</p>
+      <h2>Gestão de Equipe</h2>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#127958;</div>
+          <span class="badge badge-green">Em operação</span>
+        </div>
+        <h3>Férias</h3>
+        <p>Cadastro de períodos de férias da equipe.</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/ferias/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== GESTAO DE PROJETOS ===================== -->
+  <div class="category">
+    <div class="category-header">
+      <p class="category-eyebrow">Gestão de Projetos</p>
+      <h2>Painéis por Cliente</h2>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#128204;</div>
+          <span class="badge badge-green">Em operação</span>
+        </div>
+        <h3>Gestão de Projetos — Karoon</h3>
+        <p>Painel de gerenciamento do projeto Karoon: relatório mensal, acompanhamento de marcos e finanças.</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/gestao-projetos/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon">&#128204;</div>
+          <span class="badge badge-green">Em operação</span>
+        </div>
+        <h3>Gestão de Projetos — CNPC</h3>
+        <p>Painel de gerenciamento do projeto CNPC: relatório mensal, acompanhamento de marcos e finanças.</p>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/gestao-projetos-cnpc/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+
+    </div>
   </div>
 
   <div class="footer-note">Todas as ferramentas processam os arquivos localmente no navegador — nenhum dado é enviado para servidor.</div>
