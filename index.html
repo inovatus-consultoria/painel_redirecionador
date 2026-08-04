@@ -42,7 +42,7 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
 .hero h1 { font-size:34px; margin:0; }
 .hero .subtitle { font-size:14px; color:var(--ink3); margin-top:6px; max-width:560px; }
 
-.categories { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:22px; align-items:start; }
+.categories { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:22px; align-items:start; }
 .category { min-width:0; }
 .category-header { margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border); }
 .category-eyebrow { font-size:11.5px; font-weight:600; color:var(--ink3); text-transform:uppercase; letter-spacing:.08em; margin:0; }
@@ -105,7 +105,10 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
 .footer-note { margin-top:30px; padding-top:22px; border-top:1px solid var(--border); font-size:12px; color:var(--ink3); text-align:center; }
 .legend-note { margin-top:8px; font-size:12px; color:var(--ink3); text-align:center; }
 
-@media (max-width:1100px) {
+@media (max-width:1320px) {
+  .categories { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width:1000px) {
   .categories { grid-template-columns:repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width:760px) {
@@ -146,7 +149,7 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
           <span class="badge badge-amber">Protótipo</span>
         </div>
                 <div class="card-title-row">
-          <h3>Análise de Consumo</h3>
+          <h3>Assistente de PC</h3>
           <span class="info-icon" tabindex="0" aria-label="Sobre esta ferramenta">i<span class="info-tooltip">Visualiza a pré-análise dos itens de material de consumo. Gera um painel interativo ou uma planilha Excel a partir do arquivo <strong>.json</strong> exportado pela IA.</span></span>
         </div>
         <div class="card-footer">
@@ -174,6 +177,33 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
       <div class="card">
         <div class="card-top">
           <div class="card-icon-wrap">
+            <div class="card-icon">&#128101;</div>
+          </div>
+          <span class="badge badge-amber">Protótipo</span>
+        </div>
+                <div class="card-title-row">
+          <h3>Análise de Equipe (REF)</h3>
+          <span class="info-icon" tabindex="0" aria-label="Sobre esta ferramenta">i<span class="info-tooltip">Analisa os dados de equipe da prestação de contas a partir do arquivo REF. Substitui o antigo controle em Excel apelidado de "Controle de HH".</span></span>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/analise_REF_equipe/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== APOIO OPERACIONAL ===================== -->
+  <div class="category">
+    <div class="category-header">
+      <p class="category-eyebrow">Apoio Operacional</p>
+      <h2>Preparação de Arquivos</h2>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">
             <div class="card-icon">&#128196;</div>
           </div>
           <span class="badge badge-green">Em operação</span>
@@ -190,22 +220,6 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
       <div class="card">
         <div class="card-top">
           <div class="card-icon-wrap">
-            <div class="card-icon">&#128101;</div>
-          </div>
-          <span class="badge badge-amber">Protótipo</span>
-        </div>
-                <div class="card-title-row">
-          <h3>Análise de Equipe (REF)</h3>
-          <span class="info-icon" tabindex="0" aria-label="Sobre esta ferramenta">i<span class="info-tooltip">Analisa os dados de equipe da prestação de contas a partir do arquivo REF. Substitui o antigo controle em Excel apelidado de "Controle de HH".</span></span>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/analise_REF_equipe/" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-top">
-          <div class="card-icon-wrap">
             <div class="card-icon">&#128196;</div>
           </div>
           <span class="badge badge-green">Em operação</span>
@@ -216,6 +230,22 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
         </div>
         <div class="card-footer">
           <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/mesclar_pdfs/mesclar-pdfs.html" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon-wrap">
+            <div class="card-icon">&#128193;</div>
+          </div>
+          <span class="badge badge-green">Em operação</span>
+        </div>
+                <div class="card-title-row">
+          <h3>Organizador de Pasta</h3>
+          <span class="info-icon" tabindex="0" aria-label="Sobre esta ferramenta">i<span class="info-tooltip">Junta todos os arquivos que estão dentro de subpastas e coloca direto na pasta principal. Útil para arrumar uma pasta de comprovantes antes de mesclar PDFs ou rodar uma pré-análise.</span></span>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/organizador_pasta/organizar-pasta.html" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
         </div>
       </div>
 
