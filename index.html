@@ -61,6 +61,10 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
   transition:transform .15s, box-shadow .15s;
 }
 .card:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(26,36,32,0.12); }
+.card.card-disabled { opacity:.46; filter:grayscale(.3); }
+.card.card-disabled:hover { transform:none; box-shadow:var(--shadow); }
+.card.card-disabled .btn { background:var(--border); color:var(--ink3); cursor:not-allowed; pointer-events:none; }
+.card.card-disabled .info-icon { pointer-events:none; }
 
 .card-top { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px; }
 .card-icon-wrap { display:flex; align-items:center; gap:8px; }
@@ -242,19 +246,19 @@ h1, h2, h3, .serif { font-family:'DM Sans', Arial, sans-serif; font-weight:800; 
         </div>
       </div>
 
-      <div class="card">
+      <div class="card card-disabled" aria-disabled="true">
         <div class="card-top">
           <div class="card-icon-wrap">
             <div class="card-icon">&#128193;</div>
           </div>
-          <span class="badge badge-green">Em operação</span>
+          <span class="badge badge-amber">Temporariamente inativo</span>
         </div>
                 <div class="card-title-row">
           <h3>Organizador de Pasta</h3>
-          <span class="info-icon" tabindex="0" aria-label="Sobre esta ferramenta">i<span class="info-tooltip">Junta todos os arquivos que estão dentro de subpastas e coloca direto na pasta principal. Útil para arrumar uma pasta de comprovantes antes de mesclar PDFs ou rodar uma pré-análise.</span></span>
+          <span class="info-icon" aria-label="Ferramenta temporariamente inativa">i<span class="info-tooltip">Temporariamente inativo enquanto o novo fluxo de mesclagem por pasta é avaliado.</span></span>
         </div>
         <div class="card-footer">
-          <a class="btn btn-primary" href="https://inovatus-consultoria.github.io/organizador_pasta/organizar-pasta.html" target="_blank" rel="noopener">Abrir ferramenta <span class="arrow">&#8594;</span></a>
+          <span class="btn btn-primary" aria-disabled="true">Temporariamente inativo</span>
         </div>
       </div>
 
